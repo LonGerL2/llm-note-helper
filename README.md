@@ -33,25 +33,6 @@
 5. 等待模型生成摘要、知识点、考试重点和复习问题。
 6. 后续继续输入“更简短”“改成表格”“增加复习题”等建议，再点击按钮即可多轮修改。
 
-## GitHub Pages 部署步骤
-
-1. 新建 GitHub 仓库，例如：`llm-note-helper`。
-2. 上传 `index.html`、`style.css`、`script.js`、`README.md`。
-3. 进入仓库 `Settings`。
-4. 点击左侧 `Pages`。
-5. 在 `Build and deployment` 中选择 `Deploy from a branch`。
-6. Branch 选择 `main`，目录选择 `/root`，点击保存。
-7. 等待 1 到 3 分钟，GitHub Pages 会生成 HTTPS 链接。
-8. 打开链接测试网页是否能正常访问和调用模型。
-
-## 课程群表格填写参考
-
-| 字段 | 内容 |
-| --- | --- |
-| 姓名 | 填写本人姓名 |
-| 学号 | 填写本人学号 |
-| 项目名称 | 多轮学习笔记整理助手 |
-| 项目链接 | 填写 GitHub Pages 生成的 HTTPS 链接 |
 
 ## 注意事项
 
