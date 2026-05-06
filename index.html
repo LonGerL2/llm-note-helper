@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>多轮学习笔记整理助手</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div>
+        <p class="tag">Web LLM 应用实践作业</p>
+        <h1>多轮学习笔记整理助手</h1>
+        <p class="intro">
+          输入课程笔记后，系统可生成摘要、知识点和复习问题；之后可以继续提出“更简短”“改成表格”“更适合考试复习”等建议，助手会结合上下文继续修改。
+        </p>
+      </div>
+      <div class="hero-card">
+        <span>模型</span>
+        <strong>qwen3.6-plus</strong>
+        <small>阿里云百炼 OpenAI 兼容接口</small>
+      </div>
+    </header>
+
+    <main class="app-grid">
+      <section class="panel control-panel">
+        <h2>使用设置</h2>
+        <label for="apiKey">阿里云百炼 API Key</label>
+        <div class="key-row">
+          <input id="apiKey" type="password" placeholder="请输入自己的 API Key，不会写入代码或仓库" autocomplete="off" />
+          <button id="toggleKey" type="button" class="ghost-btn">显示</button>
+        </div>
+        <p class="safe-tip">密钥仅保存在当前浏览器页面内存中，刷新页面后需要重新填写。</p>
+
+        <label for="mode">整理目标</label>
+        <select id="mode">
+          <option value="summary">生成摘要、知识点与复习问题</option>
+          <option value="exam">整理成考试复习版</option>
+          <option value="table">整理成表格版</option>
+          <option value="brief">压缩成简短版</option>
+        </select>
+
+        <label for="userInput">课程笔记 / 修改建议</label>
+        <textarea id="userInput" rows="12" placeholder="第一次输入课程笔记；后续可输入：请更简短、改成表格、增加复习题、突出考试重点……"></textarea>
+
+        <div class="actions">
+          <button id="sendBtn" type="button" class="primary-btn">生成 / 继续修改</button>
+          <button id="clearBtn" type="button" class="secondary-btn">清空对话</button>
+        </div>
+
+        <div id="status" class="status" aria-live="polite"></div>
+        <div id="errorBox" class="error-box" hidden></div>
+      </section>
+
+      <section class="panel chat-panel">
+        <div class="chat-header">
+          <div>
+            <h2>模型回复显示区</h2>
+            <p>会话历史会随请求一起发送，用于实现多轮修改。</p>
+          </div>
+          <button id="copyBtn" type="button" class="ghost-btn">复制最新回复</button>
+        </div>
+        <div id="chatList" class="chat-list">
+          <div class="empty-state">
+            <strong>还没有内容</strong>
+            <span>请输入 API Key 和课程笔记，点击“生成 / 继续修改”。</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>提示：项目为纯前端静态页面，不包含后端、数据库、登录系统或服务器转发。</p>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
